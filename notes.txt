@@ -1,0 +1,5 @@
+player has a name, score, and true or false if it is their turn.
+  player rolls dice. if it is a one, set the turn total to 0, add 0 to total.
+    set isturn to false, and other player's isturn to true
+  else, if the player chooses to hold, add their turn total to total score
+    set isturn to false, and other player's isturn to true
