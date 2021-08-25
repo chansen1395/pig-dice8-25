@@ -5,41 +5,83 @@ function Player(name, score, turnScore, isTurn) {
   this.isTurn = isTurn;
 }
 
-// function player1(totalCount, turnCount) {
-//   this.totalCount = totalCount;
-//   console.log(this.totalCount);
-//   this.turnCount = turnCount;
-// }
-
-player1 = new Player("player1", 0, 0, true);
-player2 = new Player("player2", 0, 0, false);
-
-let totalCount = 0
-
-// function rollDice() {
-//   let score = 0;
-//   min = Math.ceil(1);
-//   max = Math.floor(6);
-//   score = Math.floor(Math.random() * max + min);
-//   return score;
-// }
-
-Player.prototype.rollDice = function() {
+Player.prototype.rollDice = function () {
   tempScore = Math.floor(Math.random() * 6 + 1);
-  console.log(tempScore);
+  console.log("Roll score: " + tempScore);
   if (tempScore === 1) {
-    // this.isTurn = false;
     this.turnScore += 0;
+    if (turnCounter === 1) {
+      turnCounter = 2;
+    } else if (turnCounter === 2) {
+      turnCounter = 1;
+    }
   } else {
     this.turnScore += tempScore;
   }
 }
 
-Player.prototype.hold = function() {
-  this.score += thisturnScore;
+Player.prototype.hold = function () {
+  this.score += this.turnScore;
   this.turnScore = 0;
-  this.isTurn = false;
+  if (turnCounter === 1) {
+    turnCounter = 2;
+  } else if (turnCounter === 2) {
+    turnCounter = 1;
+  }
 }
+
+
+player1 = new Player("player1", 0, 0, 1);
+player2 = new Player("player2", 0, 0, 2);
+var turnCounter = 1;
+
+// $("button#playerOneHold").click(function) {
+//     const result = playerOne.roll();
+//     updatePlayerOneTurnTotal(playerOne, result);
+// })
+// $("playerOneHold").click(function() {
+//     playerOne.hold();
+//     updatePlayerOneOverallTotal(playerOne);
+//     updateDisable(playerOne);
+// })
+
+// function updatePlayerOneTurnTotal(player, roll) {
+//     $("#playerOneturnTotal").Text(player.turnPointTotal);
+//     $("playerOneCurrentRoll").text(roll);
+// }
+// function updatePlayerOneOverallTotal(player) {
+//     $$("playerOneOverallTotal").text(player.pointTotal);
+// }
+
+
+$(document).ready(function () {
+  $("#playerRoll").click(function () {
+    console.log("Turn counter: " + turnCounter);
+    if (turnCounter === 1) {
+      player1.rollDice();
+    } else if (turnCounter === 2) {
+      player2.rollDice();
+    }
+    $("#player1Score").html(player1.score);
+    $("#player2Score").html(player2.score);
+  });
+
+  $("#playerHold").click(function () {
+    console.log("Turn counter: " + turnCounter);
+    if (turnCounter === 1){
+    player1.hold();
+    console.log("P1 Score: " + player1.score);
+    } else if (turnCounter === 2) {
+    player2.hold();
+    console.log("P2 Score: " + player2.score);
+    }
+    $("#player1Score").html(player1.score);
+    $("#player2Score").html(player2.score);
+  });
+});
+
+
+
 
 
 // while player's turn = true

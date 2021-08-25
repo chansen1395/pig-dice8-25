@@ -3,3 +3,15 @@ player has a name, score, and true or false if it is their turn.
     set isturn to false, and other player's isturn to true
   else, if the player chooses to hold, add their turn total to total score
     set isturn to false, and other player's isturn to true
+
+-player 1 total score, turn score, and dice roll
+-player 2 total score, turn score, and dice roll
+-win condition for certain score, game reset button display some winner banner
+-player can't hold without rolling first. Tell player they need to roll before they hold. Hide button?
+-hilight the player whose turn it is
+-add image of a dice with corresponding roll
+
+
+
+-*add option to play against computer or 2 humans*
+
