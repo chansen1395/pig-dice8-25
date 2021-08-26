@@ -1,0 +1,12 @@
+#player1Win, #player2Win {
+  display: none;
+}
+
+
+.player-1 {
+  background-color: green;
+}
+
+.player-2 { 
+  background-color: green;
+}
