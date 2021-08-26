@@ -63,10 +63,12 @@ $(document).ready(function () {
   $("#playerRoll").click(function () {
     console.log("Turn counter: " + turnCounter);
     if (turnCounter === 1) {
-      
+      $("#player-1").addClass("player-1");
+      $("#player-2").removeClass("player-1");
       player1.rollDice();
     } else if (turnCounter === 2) {
-      
+      $("#player-2").addClass("player-1");
+      $("#player-1").removeClass("player-1");
       player2.rollDice();
     }
     $("#player1Score").html(player1.score);
@@ -78,7 +80,9 @@ $(document).ready(function () {
   $("#playerHold").click(function () {
     console.log("Turn counter: " + turnCounter);
     if (turnCounter === 1){
-    player1.hold();
+      player1.hold();
+      $("#player-1").addClass("player-1");
+      $("#player-2").removeClass("player-1");
     $("#player1TurnScore").html(0);
     if (player1.score >= 20) {
       $("#playerHold,#playerRoll").hide();
@@ -86,7 +90,9 @@ $(document).ready(function () {
     }
     console.log("P1 Score: " + player1.score);
     } else if (turnCounter === 2) {
-    player2.hold();
+      player2.hold();
+      $("#player-2").addClass("player-1");
+      $("#player-1").removeClass("player-1");
     $("#player2TurnScore").html(0);
       if (player2.score >= 20) {
         $("#playerHold,#playerRoll").hide();
