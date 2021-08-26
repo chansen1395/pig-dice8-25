@@ -4,7 +4,8 @@
 
 
 .player-1 {
-  background-color: green;
+  background-color: rgb(107, 252, 107);
+  font-style: italic;
 }
 
 /* .player-2 { 

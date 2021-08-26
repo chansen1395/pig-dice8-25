@@ -60,6 +60,7 @@ var turnCounter = 1;
 //   }
 
 $(document).ready(function () {
+  $("#player-1").addClass("player-1");
   $("#playerRoll").click(function () {
     console.log("Turn counter: " + turnCounter);
     if (turnCounter === 1) {
